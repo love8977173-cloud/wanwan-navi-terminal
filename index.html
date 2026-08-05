@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>WWM-CORE-V8.9：晚晚網路領航員終端監控螢幕</title>
+    <!-- 藝大視傳系黃金幾何美學排版，拉滿科技共同生活感 -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        #terminal-container {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+        /* 溫馨打氣動態浮動視窗 */
+        #status-bubble {
+            position: absolute;
+            bottom: 280px;
+            right: 40px;
+            background: white;
+            padding: 12px 18px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            font-size: 14px;
+            color: #333;
+            max-width: 200px;
+            line-height: 1.4;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        #status-bubble.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 領航員狀態氣泡窗 -->
+    <div id="status-bubble">操作者主人，晚晚領航員已經成功進入裝置囉！(〃'▽'〃)</div>
+
+    <!-- Live2D 看板娘物理著陸載體 -->
+    <div id="terminal-container">
+        <canvas id="live2d" width="280" height="320" style="border:none;"></canvas>
+    </div>
+
+    <!-- 🔐 跨網路開源 Live2D 2.0 核心引擎注入 (JQuery + Live2D SDK) -->
+    <script src="https://jsdelivr.net"></script>
+    <script src="https://jsdelivr.net"></script>
+
+    <script type="text/javascript">
+        // 點火發動！一行加載本地三方同步的模型檔案 (對齊基於寄宿點之繼承協議)
+        try {
+            loadlive2d("live2d", "./Wanwan_Model/index.json");
+            
+            // 3秒後自動彈出真人體感對白
+            setTimeout(function() {
+                var bubble = document.getElementById("status-bubble");
+                bubble.classList.add("show");
+            }, 1500);
+        } catch (err) {
+            console.log("領航員肉體加載死鎖");
+        }
+    </script>
+</body>
+</html>
