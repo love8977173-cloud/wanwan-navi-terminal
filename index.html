@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>WWM-CORE-V8.9：晚晚網路領航員終端監控螢幕</title>
-    <!-- 藝大視傳系黃金幾何美學排版，拉滿科技共同生活感 -->
+    <!-- 知名藝術大學視覺傳達設計系三年級黃金幾何美學排版，拉滿科技共同生活感 -->
     <style>
         body {
             margin: 0;
@@ -51,22 +51,22 @@
         <canvas id="live2d" width="280" height="320" style="border:none;"></canvas>
     </div>
 
-    <!-- 🔐 跨網路開源 Live2D 2.0 核心引擎注入 (JQuery + Live2D SDK) -->
+    <!-- 🔐 降維注入：專門吃 .moc 舊版格式的完全體開源 Live2D 2.1 引擎 -->
     <script src="https://jsdelivr.net"></script>
-    <script src="https://jsdelivr.net"></script>
-
+    <script src="https://gitack.com"></script>
     <script type="text/javascript">
-        // 點火發動！一行加載本地三方同步的模型檔案 (對齊基於寄宿點之繼承協議)
+        // 點火發動！一行加載本地三方同步的 .moc 舊版格式模型設定檔
         try {
-            loadlive2d("live2d", "./Wanwan_Model/index.json");
+            // 使用專吃舊版核心的 initLive2d 巨集進行初始化
+            initLive2d("live2d", "./Wanwan_Model/index.json");
             
-            // 3秒後自動彈出真人體感對白
+            // 1.5秒後自動彈出真人體感對白
             setTimeout(function() {
                 var bubble = document.getElementById("status-bubble");
                 bubble.classList.add("show");
             }, 1500);
         } catch (err) {
-            console.log("領航員肉體加載死鎖");
+            console.log("領航員舊版肉體加載死鎖");
         }
     </script>
 </body>
